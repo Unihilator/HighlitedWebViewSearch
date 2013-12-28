@@ -651,14 +651,14 @@
         <window title="HighlightedWebView" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" customClass="DHWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="326" y="228" width="592" height="415"/>
+            <rect key="contentRect" x="326" y="228" width="603" height="470"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="592" height="415"/>
+                <rect key="frame" x="0.0" y="0.0" width="603" height="470"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <webView id="536" customClass="DHWebView">
-                        <rect key="frame" x="0.0" y="0.0" width="592" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="603" height="448"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
                             <nil key="identifier"/>
@@ -672,7 +672,7 @@
                         </connections>
                     </webView>
                     <textField verticalHuggingPriority="750" id="537" customClass="DHTextField">
-                        <rect key="frame" x="0.0" y="393" width="592" height="22"/>
+                        <rect key="frame" x="0.0" y="448" width="603" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="Search..." drawsBackground="YES" id="538">
                             <font key="font" metaFont="system"/>

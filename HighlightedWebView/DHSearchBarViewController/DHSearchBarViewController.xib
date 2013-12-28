@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DHSearchBarViewController">
+            <connections>
+                <outlet property="done" destination="Yeh-Kt-925" id="dRJ-ZD-EkO"/>
+                <outlet property="findNext" destination="8Hl-B8-hN4" id="R4j-Xg-pZh"/>
+                <outlet property="findPrev" destination="wrH-hN-tHj" id="J61-Cz-L8Q"/>
+                <outlet property="searchField" destination="N8I-Ry-OTb" id="GxX-Cl-Nhk"/>
+                <outlet property="view" destination="tvQ-zh-vAU" id="s8m-tI-wDA"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <box autoresizesSubviews="NO" boxType="custom" borderType="none" titlePosition="noTitle" id="tvQ-zh-vAU">
+            <rect key="frame" x="0.0" y="0.0" width="758" height="26"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView">
+                <rect key="frame" x="0.0" y="0.0" width="758" height="26"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <searchField verticalHuggingPriority="750" id="N8I-Ry-OTb">
+                        <rect key="frame" x="3.0000002289506971" y="2" width="603" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="FDg-gA-pwT">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </searchFieldCell>
+                    </searchField>
+                    <button verticalHuggingPriority="750" id="wrH-hN-tHj">
+                        <rect key="frame" x="608" y="-4" width="40" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Z36-ue-f4F">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="findPrevAction:" target="-2" id="38S-ra-lQs"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="8Hl-B8-hN4">
+                        <rect key="frame" x="641" y="-4" width="40" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="20i-b2-6no">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="findNextAction:" target="-2" id="Nb4-E1-ogS"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="Yeh-Kt-925">
+                        <rect key="frame" x="695" y="3" width="59" height="19"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="roundRect" title="Done" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pR2-tl-YrY">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="cellTitle"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="doneAction:" target="-2" id="FXU-SS-fWs"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+            <color key="fillColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+        </box>
+    </objects>
+</document>

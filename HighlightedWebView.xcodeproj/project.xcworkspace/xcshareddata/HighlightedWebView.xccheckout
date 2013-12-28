@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4A252F73-6974-42A8-8B48-3807536D76F2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HighlightedWebView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>84914F81-540D-4838-9E7F-52DEEFFF6239</key>
+		<string>https://github.com/Unihilator/HighlitedWebViewSearch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HighlightedWebView.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>84914F81-540D-4838-9E7F-52DEEFFF6239</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Unihilator/HighlitedWebViewSearch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>84914F81-540D-4838-9E7F-52DEEFFF6239</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>84914F81-540D-4838-9E7F-52DEEFFF6239</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HighlitedWebViewSearch</string>
+		</dict>
+	</array>
+</dict>
+</plist>

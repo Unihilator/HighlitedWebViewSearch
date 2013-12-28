@@ -10,6 +10,8 @@
 		345BCE35186D99C400350894 /* DHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 345BCE34186D99C400350894 /* DHWindow.m */; };
 		345BCE38186D9BD900350894 /* DHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 345BCE37186D9BD900350894 /* DHTextField.m */; };
 		34634668186ED5AC0043BCA0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F1FF7C1558185F0043B796 /* WebKit.framework */; };
+		3463466F186F16D50043BCA0 /* DHSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463466D186F16D50043BCA0 /* DHSearchBarViewController.m */; };
+		34634670186F16D50043BCA0 /* DHSearchBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3463466E186F16D50043BCA0 /* DHSearchBarViewController.xib */; };
 		433DA6B4155A95340023C7D7 /* DHScrollbarHighlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = 433DA6B3155A95340023C7D7 /* DHScrollbarHighlighter.m */; };
 		43F7F3821554F75D00879D86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F7F3811554F75D00879D86 /* Cocoa.framework */; };
 		43F7F38C1554F75D00879D86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43F7F38A1554F75D00879D86 /* InfoPlist.strings */; };
@@ -39,6 +41,9 @@
 		345BCE34186D99C400350894 /* DHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHWindow.m; sourceTree = "<group>"; };
 		345BCE36186D9BD900350894 /* DHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTextField.h; sourceTree = "<group>"; };
 		345BCE37186D9BD900350894 /* DHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTextField.m; sourceTree = "<group>"; };
+		3463466C186F16D50043BCA0 /* DHSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSearchBarViewController.h; sourceTree = "<group>"; };
+		3463466D186F16D50043BCA0 /* DHSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSearchBarViewController.m; sourceTree = "<group>"; };
+		3463466E186F16D50043BCA0 /* DHSearchBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DHSearchBarViewController.xib; sourceTree = "<group>"; };
 		433DA6B2155A95340023C7D7 /* DHScrollbarHighlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHScrollbarHighlighter.h; sourceTree = "<group>"; };
 		433DA6B3155A95340023C7D7 /* DHScrollbarHighlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHScrollbarHighlighter.m; sourceTree = "<group>"; };
 		43F1FF7C1558185F0043B796 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -76,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3463466B186F16A10043BCA0 /* DHSearchBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3463466C186F16D50043BCA0 /* DHSearchBarViewController.h */,
+				3463466D186F16D50043BCA0 /* DHSearchBarViewController.m */,
+				3463466E186F16D50043BCA0 /* DHSearchBarViewController.xib */,
+			);
+			path = DHSearchBarViewController;
+			sourceTree = "<group>";
+		};
 		43F7F3721554F75D00879D86 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +131,7 @@
 		43F7F3871554F75D00879D86 /* HighlightedWebView */ = {
 			isa = PBXGroup;
 			children = (
+				3463466B186F16A10043BCA0 /* DHSearchBarViewController */,
 				345BCE33186D99C400350894 /* DHWindow.h */,
 				345BCE34186D99C400350894 /* DHWindow.m */,
 				345BCE36186D9BD900350894 /* DHTextField.h */,
@@ -200,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34634670186F16D50043BCA0 /* DHSearchBarViewController.xib in Resources */,
 				43F7F38C1554F75D00879D86 /* InfoPlist.strings in Resources */,
 				43F7F3921554F75D00879D86 /* Credits.rtf in Resources */,
 				43F7F3981554F75D00879D86 /* MainMenu.xib in Resources */,
@@ -216,6 +233,7 @@
 				43F7F38E1554F75D00879D86 /* main.m in Sources */,
 				43F7F3951554F75D00879D86 /* DHAppDelegate.m in Sources */,
 				43F7F3A01554F77000879D86 /* DHWebView.m in Sources */,
+				3463466F186F16D50043BCA0 /* DHSearchBarViewController.m in Sources */,
 				43F7F3B0155508BB00879D86 /* DHSearchQuery.m in Sources */,
 				43F7F3BA155566D700879D86 /* DHMatchedText.m in Sources */,
 				345BCE38186D9BD900350894 /* DHTextField.m in Sources */,

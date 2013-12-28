@@ -1,9 +1,10 @@
 #import "DHWebView.h"
 #import "DHMatchedText.h"
+#import "DHSearchBarViewController.h"
 
 @interface DHWebView ()
 @property (nonatomic, weak) NSBox *shadowBox;
-
+@property (nonatomic, strong) DHSearchBarViewController *sbVC;
 @end
 
 @implementation DHWebView
@@ -23,12 +24,14 @@
         [self setTextSizeMultiplier:textSizeMultiplier];
     }
     [self initializeShadowView];
-    
+    /*
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         [context setDuration:3.0f];
-//        [[self.shadowBox animator] setFillColor:[NSColor clearColor]];
-//        [[self.shadowBox animator] setAlphaValue:0.0f];
+        [[self.shadowBox animator] setFillColor:[NSColor clearColor]];
+        [[self.shadowBox animator] setAlphaValue:0.0f];
     } completionHandler:nil];
+    */
+    [self initializeSearchBar];
 }
 
 - (void)initializeShadowView
@@ -45,6 +48,21 @@
                                   NSViewHeightSizable);
     [self.superview addSubview:shadowBox];
     self.shadowBox = shadowBox;
+}
+
+- (void)initializeSearchBar
+{
+    self.sbVC = [[DHSearchBarViewController alloc] init];
+    NSBox *box = (NSBox *)self.sbVC.view;
+    NSRect rect = NSMakeRect(0, self.frame.size.height, self.frame.size.width, box.frame.size.height);
+    [box setFrame:rect];
+    [self addSubview:box];
+    
+    box.autoresizingMask = (NSViewMinXMargin |
+                                  NSViewWidthSizable |
+                                  NSViewMaxXMargin |
+                                  NSViewMinYMargin
+                                  );
 }
 
 - (BOOL)searchFor:(NSString *)string direction:(BOOL)forward caseSensitive:(BOOL)caseFlag wrap:(BOOL)wrapFlag
@@ -541,8 +559,8 @@
 - (void)keyDown:(NSEvent *)theEvent
 {
     if (( [theEvent modifierFlags] & NSCommandKeyMask ) && ([theEvent.characters isEqualToString:@"f"])) {
-        [self showTextField];
-        
+//        [self showTextField];
+        [self showSearchField];
     }
     else
     {
@@ -561,6 +579,19 @@
     }
 }
 
+- (void)showSearchField
+{
+     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context)
+    {
+        NSBox *box = (NSBox *)self.sbVC.view;
+        [context setDuration:.3f];
+        NSRect rect = NSMakeRect(0, self.frame.size.height - box.frame.size.height, self.frame.size.width, box.frame.size.height);
+        [self.sbVC.view.animator setFrame:rect];
+    }
+                         completionHandler:nil];
+}
+
+#warning Delete
 - (void)showTextField
 {
     NSTextField *tf = [[self delegate] textField];
