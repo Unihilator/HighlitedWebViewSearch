@@ -10,7 +10,7 @@
                 <outlet property="done" destination="Yeh-Kt-925" id="dRJ-ZD-EkO"/>
                 <outlet property="findNext" destination="8Hl-B8-hN4" id="R4j-Xg-pZh"/>
                 <outlet property="findPrev" destination="wrH-hN-tHj" id="J61-Cz-L8Q"/>
-                <outlet property="searchField" destination="N8I-Ry-OTb" id="GxX-Cl-Nhk"/>
+                <outlet property="searchField" destination="N8I-Ry-OTb" id="GwL-fx-y9i"/>
                 <outlet property="view" destination="tvQ-zh-vAU" id="s8m-tI-wDA"/>
             </connections>
         </customObject>
@@ -23,8 +23,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="758" height="26"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <searchField verticalHuggingPriority="750" id="N8I-Ry-OTb">
-                        <rect key="frame" x="3.0000002289506971" y="2" width="603" height="22"/>
+                    <searchField verticalHuggingPriority="750" id="N8I-Ry-OTb" customClass="DHSearchTextField">
+                        <rect key="frame" x="2.9999956728806372" y="4" width="603" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="FDg-gA-pwT">
                             <font key="font" metaFont="system"/>
@@ -33,7 +33,7 @@
                         </searchFieldCell>
                     </searchField>
                     <button verticalHuggingPriority="750" id="wrH-hN-tHj">
-                        <rect key="frame" x="608" y="-4" width="40" height="32"/>
+                        <rect key="frame" x="608" y="0.0" width="40" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Z36-ue-f4F">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -44,7 +44,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="8Hl-B8-hN4">
-                        <rect key="frame" x="641" y="-4" width="40" height="32"/>
+                        <rect key="frame" x="641" y="0.0" width="40" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="20i-b2-6no">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -55,7 +55,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="Yeh-Kt-925">
-                        <rect key="frame" x="695" y="3" width="59" height="19"/>
+                        <rect key="frame" x="695" y="7" width="59" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="roundRect" title="Done" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pR2-tl-YrY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

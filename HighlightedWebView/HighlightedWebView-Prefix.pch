@@ -5,3 +5,7 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#define BBlockWeakObject(o) __typeof__(o) __weak
+
+#define BBlockWeakSelf BBlockWeakObject(self)

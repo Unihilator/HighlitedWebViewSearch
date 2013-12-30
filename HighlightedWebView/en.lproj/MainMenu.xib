@@ -658,7 +658,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <webView id="536" customClass="DHWebView">
-                        <rect key="frame" x="0.0" y="0.0" width="603" height="448"/>
+                        <rect key="frame" x="0.0" y="0.0" width="603" height="470"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" allowsAnimatedImages="NO" allowsAnimatedImageLooping="NO">
                             <nil key="identifier"/>
@@ -671,26 +671,12 @@
                             <outlet property="resourceLoadDelegate" destination="494" id="543"/>
                         </connections>
                     </webView>
-                    <textField verticalHuggingPriority="750" id="537" customClass="DHTextField">
-                        <rect key="frame" x="0.0" y="448" width="603" height="22"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="Search..." drawsBackground="YES" id="538">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <action selector="search:" target="494" id="539"/>
-                            <outlet property="delegate" destination="494" id="546"/>
-                        </connections>
-                    </textField>
                 </subviews>
             </view>
         </window>
         <customObject id="494" customClass="DHAppDelegate">
             <connections>
                 <outlet property="rootView" destination="372" id="f7B-9M-GlP"/>
-                <outlet property="textSearchField" destination="537" id="WhS-vd-vLT"/>
                 <outlet property="webView" destination="536" id="545"/>
                 <outlet property="window" destination="371" id="KE5-Nt-rXh"/>
             </connections>

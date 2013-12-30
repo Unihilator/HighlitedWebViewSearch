@@ -1,8 +1,9 @@
 #import "DHWebView.h"
 #import "DHMatchedText.h"
 #import "DHSearchBarViewController.h"
+#import "DHSearchTextField.h"
 
-@interface DHWebView ()
+@interface DHWebView () <DHSearchBarViewDelegate>
 @property (nonatomic, weak) NSBox *shadowBox;
 @property (nonatomic, strong) DHSearchBarViewController *sbVC;
 @end
@@ -16,6 +17,11 @@
 @synthesize entirePageContent;
 @synthesize scrollHighlighter;
 
+- (void)dealloc
+{
+    [self invalidateTimers];
+}
+
 - (void)awakeFromNib
 {
     float textSizeMultiplier = [[NSUserDefaults standardUserDefaults] floatForKey:@"DHHighlightedWebViewTextSizeMultiplier"];
@@ -24,13 +30,6 @@
         [self setTextSizeMultiplier:textSizeMultiplier];
     }
     [self initializeShadowView];
-    /*
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        [context setDuration:3.0f];
-        [[self.shadowBox animator] setFillColor:[NSColor clearColor]];
-        [[self.shadowBox animator] setAlphaValue:0.0f];
-    } completionHandler:nil];
-    */
     [self initializeSearchBar];
 }
 
@@ -41,6 +40,7 @@
     shadowBox.boxType = NSBoxCustom;
     shadowBox.borderType = NSNoBorder;
     shadowBox.fillColor = [NSColor colorWithCalibratedWhite:0.000 alpha:0.410];
+    shadowBox.alphaValue = .0f;
     shadowBox.autoresizingMask = (NSViewMinXMargin |
                                 NSViewWidthSizable |
                                   NSViewMaxXMargin |
@@ -53,6 +53,7 @@
 - (void)initializeSearchBar
 {
     self.sbVC = [[DHSearchBarViewController alloc] init];
+    self.sbVC.delegate = self;
     NSBox *box = (NSBox *)self.sbVC.view;
     NSRect rect = NSMakeRect(0, self.frame.size.height, self.frame.size.width, box.frame.size.height);
     [box setFrame:rect];
@@ -562,6 +563,10 @@
 //        [self showTextField];
         [self showSearchField];
     }
+    else if ([theEvent.characters isEqualToString:@""])
+    {
+        [self hideSearchField];
+    }
     else
     {
         [super keyDown:theEvent];
@@ -581,27 +586,89 @@
 
 - (void)showSearchField
 {
-     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context)
+    [self animateSearchBarAndHide:NO];
+    
+    [self highlightQuery:self.sbVC.searchField.stringValue caseSensitive:NO];
+}
+
+- (void)hideSearchField
+{
+    [self animateSearchBarAndHide:YES];
+
+    [self highlightQuery:@"" caseSensitive:NO];
+}
+
+- (void)animateSearchBarAndHide:(BOOL)hides
+{
+    BBlockWeakSelf weakself = self;
+    NSBox *box = (NSBox *)weakself.sbVC.view;
+    NSRect rect = hides ? NSMakeRect(0, weakself.frame.size.height, weakself.frame.size.width, box.frame.size.height)
+    : NSMakeRect(0, weakself.frame.size.height - box.frame.size.height, weakself.frame.size.width, box.frame.size.height);
+    
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context)
     {
-        NSBox *box = (NSBox *)self.sbVC.view;
-        [context setDuration:.3f];
-        NSRect rect = NSMakeRect(0, self.frame.size.height - box.frame.size.height, self.frame.size.width, box.frame.size.height);
-        [self.sbVC.view.animator setFrame:rect];
-    }
-                         completionHandler:nil];
+        [context setDuration:.25f];
+        [weakself.sbVC.view.animator setFrame:rect];
+//        if (hides) {
+//            [[weakself.shadowBox animator] setAlphaValue:0.0f];
+//        }
+//        else
+//        {
+//            [[weakself.shadowBox animator] setAlphaValue:1.0f];
+//        }
+    } completionHandler:^
+    {
+        if (hides) {
+            [weakself.window makeFirstResponder:self];
+        }
+        else
+        {
+            [weakself.window makeFirstResponder:weakself.sbVC.searchField];
+        }
+    }];
+    
+    /*
+     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+     [context setDuration:3.0f];
+     [[self.shadowBox animator] setFillColor:[NSColor clearColor]];
+     [[self.shadowBox animator] setAlphaValue:0.0f];
+     } completionHandler:nil];
+     */
 }
 
-#warning Delete
-- (void)showTextField
+#pragma mark - DHSearchBarViewDelegate
+
+- (void)findPrevButtonPressed:(NSButton *)button withTextfield:(NSTextField *)textField
 {
-    NSTextField *tf = [[self delegate] textField];
-    [tf setHidden:NO];
-    [[NSApp keyWindow] makeFirstResponder:tf];
+    NSString *query = [textField stringValue];
+    [self searchFor:query direction:NO caseSensitive:NO wrap:YES];
+    [self.window makeFirstResponder:textField];
 }
 
-- (void)dealloc
+- (void)findNextButtonPressed:(NSButton *)button withTextfield:(NSTextField *)textField
 {
-    [self invalidateTimers];
+    NSString *query = [textField stringValue];
+    [self searchFor:query direction:YES caseSensitive:NO wrap:YES];
+    [self.window makeFirstResponder:textField];
 }
+
+- (void)doneButtonPressed:(NSButton *)button withTextfield:(NSTextField *)textField
+{
+    // Hides shadowView
+    [self animateSearchBarAndHide:YES];
+    
+    [self highlightQuery:@"" caseSensitive:NO];
+}
+
+- (void)searchField:(NSSearchField *)searchField didChangeText:(NSNotification *)notif
+{
+    NSTextView *field = [[notif userInfo] objectForKey:@"NSFieldEditor"];
+    [self highlightQuery:[field string] caseSensitive:NO];
+}
+
+
+
+
+
 
 @end

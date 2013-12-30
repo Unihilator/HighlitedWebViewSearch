@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		345BCE35186D99C400350894 /* DHWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 345BCE34186D99C400350894 /* DHWindow.m */; };
-		345BCE38186D9BD900350894 /* DHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 345BCE37186D9BD900350894 /* DHTextField.m */; };
+		345BCE38186D9BD900350894 /* DHSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 345BCE37186D9BD900350894 /* DHSearchTextField.m */; };
 		34634668186ED5AC0043BCA0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F1FF7C1558185F0043B796 /* WebKit.framework */; };
 		3463466F186F16D50043BCA0 /* DHSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3463466D186F16D50043BCA0 /* DHSearchBarViewController.m */; };
 		34634670186F16D50043BCA0 /* DHSearchBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3463466E186F16D50043BCA0 /* DHSearchBarViewController.xib */; };
@@ -39,8 +39,8 @@
 /* Begin PBXFileReference section */
 		345BCE33186D99C400350894 /* DHWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHWindow.h; sourceTree = "<group>"; };
 		345BCE34186D99C400350894 /* DHWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHWindow.m; sourceTree = "<group>"; };
-		345BCE36186D9BD900350894 /* DHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHTextField.h; sourceTree = "<group>"; };
-		345BCE37186D9BD900350894 /* DHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHTextField.m; sourceTree = "<group>"; };
+		345BCE36186D9BD900350894 /* DHSearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSearchTextField.h; sourceTree = "<group>"; };
+		345BCE37186D9BD900350894 /* DHSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSearchTextField.m; sourceTree = "<group>"; };
 		3463466C186F16D50043BCA0 /* DHSearchBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSearchBarViewController.h; sourceTree = "<group>"; };
 		3463466D186F16D50043BCA0 /* DHSearchBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSearchBarViewController.m; sourceTree = "<group>"; };
 		3463466E186F16D50043BCA0 /* DHSearchBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DHSearchBarViewController.xib; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 				3463466B186F16A10043BCA0 /* DHSearchBarViewController */,
 				345BCE33186D99C400350894 /* DHWindow.h */,
 				345BCE34186D99C400350894 /* DHWindow.m */,
-				345BCE36186D9BD900350894 /* DHTextField.h */,
-				345BCE37186D9BD900350894 /* DHTextField.m */,
+				345BCE36186D9BD900350894 /* DHSearchTextField.h */,
+				345BCE37186D9BD900350894 /* DHSearchTextField.m */,
 				43F7F3931554F75D00879D86 /* DHAppDelegate.h */,
 				43F7F3941554F75D00879D86 /* DHAppDelegate.m */,
 				43F7F39E1554F77000879D86 /* DHWebView.h */,
@@ -236,7 +236,7 @@
 				3463466F186F16D50043BCA0 /* DHSearchBarViewController.m in Sources */,
 				43F7F3B0155508BB00879D86 /* DHSearchQuery.m in Sources */,
 				43F7F3BA155566D700879D86 /* DHMatchedText.m in Sources */,
-				345BCE38186D9BD900350894 /* DHTextField.m in Sources */,
+				345BCE38186D9BD900350894 /* DHSearchTextField.m in Sources */,
 				433DA6B4155A95340023C7D7 /* DHScrollbarHighlighter.m in Sources */,
 				345BCE35186D99C400350894 /* DHWindow.m in Sources */,
 			);

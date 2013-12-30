@@ -7,10 +7,11 @@
 //
 
 #import "DHSearchBarViewController.h"
+#import "DHSearchTextField.h"
 
-@interface DHSearchBarViewController () <NSTextFieldDelegate>
+@interface DHSearchBarViewController () <NSTextFieldDelegate, DHTextFieldDelegate>
 
-@property (weak) IBOutlet NSSearchField *searchField;
+@property (weak) IBOutlet DHSearchTextField *searchField;
 
 @property (weak) IBOutlet NSButton *findPrev;
 @property (weak) IBOutlet NSButton *findNext;
@@ -30,25 +31,42 @@
 {
     [super awakeFromNib];
     self.searchField.delegate = self;
+    self.searchField.keyPressDelegate = self;
 }
 
 - (IBAction)findPrevAction:(NSButton *)sender
 {
-    
+    if ([self.delegate respondsToSelector:@selector(findPrevButtonPressed:withTextfield:)]) {
+        [self.delegate findPrevButtonPressed:sender withTextfield:self.searchField];
+    }
 }
 
 - (IBAction)findNextAction:(NSButton *)sender
 {
-    
+    if ([self.delegate respondsToSelector:@selector(findNextButtonPressed:withTextfield:)]) {
+        [self.delegate findNextButtonPressed:sender withTextfield:self.searchField];
+    }
 }
 
 - (IBAction)doneAction:(NSButton *)sender
 {
-    
+    if ([self.delegate respondsToSelector:@selector(doneButtonPressed:withTextfield:)]) {
+        [self.delegate doneButtonPressed:sender withTextfield:self.searchField];
+    }
 }
 
 - (void)controlTextDidChange:(NSNotification *)obj
 {
-    
+    if ([self.delegate respondsToSelector:@selector(searchField:didChangeText:)]) {
+        [self.delegate searchField:self.searchField didChangeText:obj];
+    }
 }
+
+- (void)searchFieldDidpressEsc:(DHSearchTextField *)sf
+{
+    if ([self.delegate respondsToSelector:@selector(doneButtonPressed:withTextfield:)]) {
+        [self.delegate doneButtonPressed:self.done withTextfield:self.searchField];
+    }
+}
+
 @end

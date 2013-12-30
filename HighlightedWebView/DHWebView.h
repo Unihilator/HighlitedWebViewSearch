@@ -3,9 +3,11 @@
 #import "DHSearchQuery.h"
 #import "DHScrollbarHighlighter.h"
 
+@class DHSearchTextField;
+
 @protocol DHWebViewProtocol <NSObject>
 @required;
-- (NSTextField *)textField;
+- (DHSearchTextField *)textField;
 @end
 
 
