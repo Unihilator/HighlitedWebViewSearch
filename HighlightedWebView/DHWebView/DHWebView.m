@@ -310,6 +310,7 @@
             NSRange intersectionRange = NSIntersectionRange([currentMatch effectiveRange], actualRange);
             if(intersectionRange.length > 0)
             {
+                //
                 [foundMatches addObject:currentMatch];
                 [[currentMatch foundRanges] addObject:[NSValue valueWithRange:intersectionRange]];
                 if(intersectionRange.location+intersectionRange.length >= actualRange.location+actualRange.length)
@@ -602,13 +603,24 @@
 {
     BBlockWeakSelf weakself = self;
     NSBox *box = (NSBox *)weakself.sbVC.view;
-    NSRect rect = hides ? NSMakeRect(0, weakself.frame.size.height, weakself.frame.size.width, box.frame.size.height)
+    NSRect searchBarRect = hides ? NSMakeRect(0, weakself.frame.size.height, weakself.frame.size.width, box.frame.size.height)
     : NSMakeRect(0, weakself.frame.size.height - box.frame.size.height, weakself.frame.size.width, box.frame.size.height);
+    
+//    NSRect webViewRect = self.frame;
+//    if (hides) {
+//        webViewRect.size.height += box.frame.size.height;
+//    }
+//    else
+//    {
+//        webViewRect.size.height -= box.frame.size.height;
+//    }
+//    
     
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context)
     {
         [context setDuration:.25f];
-        [weakself.sbVC.view.animator setFrame:rect];
+        [weakself.sbVC.view.animator setFrame:searchBarRect];
+//        [weakself.animator setFrame:webViewRect];
     } completionHandler:^
     {
         if (hides) {

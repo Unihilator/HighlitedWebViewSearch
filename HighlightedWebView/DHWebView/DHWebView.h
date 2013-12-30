@@ -5,12 +5,6 @@
 
 @class DHSearchTextField;
 
-//@protocol DHWebViewProtocol <NSObject>
-//@required;
-//- (DHSearchTextField *)textField;
-//@end
-
-
 @interface DHWebView : WebView {
     NSTimer *workerTimer;
     DHSearchQuery *currentQuery;
@@ -26,8 +20,6 @@
 @property (strong) NSMutableArray *matchedTexts;
 @property (strong) NSMutableString *entirePageContent;
 @property (strong) DHScrollbarHighlighter *scrollHighlighter;
-
-//@property (nonatomic, unsafe_unretained) id<DHWebViewProtocol> delegate;
 
 - (void)highlightQuery:(NSString *)aQuery caseSensitive:(BOOL)isCaseSensitive;
 - (void)highlightQuery:(DHSearchQuery *)query;
