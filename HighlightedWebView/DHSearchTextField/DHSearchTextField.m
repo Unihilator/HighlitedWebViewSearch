@@ -25,6 +25,10 @@
     if (theEvent.keyCode == 53) {
         [self didPressEscKeyWithEvent:theEvent];
     }
+    else if (theEvent.keyCode == 36)
+    {
+        [self didPressEnterKeyWithEvent:theEvent];
+    }
     else
     {
         [super keyUp:theEvent];
@@ -35,6 +39,13 @@
 {
     if ([self.keyPressDelegate respondsToSelector:@selector(searchFieldDidpressEsc:)]) {
         [self.keyPressDelegate searchFieldDidpressEsc:self];
+    }
+}
+
+- (void)didPressEnterKeyWithEvent:(NSEvent *)theEvent
+{
+    if ([self.delegate respondsToSelector:@selector(searchFieldDidpressEnter:)]) {
+        [self.keyPressDelegate searchFieldDidpressEnter:self];
     }
 }
 

@@ -609,13 +609,6 @@
     {
         [context setDuration:.25f];
         [weakself.sbVC.view.animator setFrame:rect];
-//        if (hides) {
-//            [[weakself.shadowBox animator] setAlphaValue:0.0f];
-//        }
-//        else
-//        {
-//            [[weakself.shadowBox animator] setAlphaValue:1.0f];
-//        }
     } completionHandler:^
     {
         if (hides) {
@@ -626,14 +619,6 @@
             [weakself.window makeFirstResponder:weakself.sbVC.searchField];
         }
     }];
-    
-    /*
-     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-     [context setDuration:3.0f];
-     [[self.shadowBox animator] setFillColor:[NSColor clearColor]];
-     [[self.shadowBox animator] setAlphaValue:0.0f];
-     } completionHandler:nil];
-     */
 }
 
 #pragma mark - DHSearchBarViewDelegate
@@ -666,7 +651,12 @@
     [self highlightQuery:[field string] caseSensitive:NO];
 }
 
-
+- (void)searchFieldDidPressEnterKey:(NSSearchField *)searchField
+{
+    NSString *query = [searchField stringValue];
+    [self searchFor:query direction:YES caseSensitive:NO wrap:YES];
+    [self.window makeFirstResponder:searchField];
+}
 
 
 

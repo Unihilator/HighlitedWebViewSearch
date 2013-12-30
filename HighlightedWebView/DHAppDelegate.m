@@ -1,7 +1,7 @@
 #import "DHAppDelegate.h"
 #import "DHWebView.h"
 
-@interface DHAppDelegate () <DHWebViewProtocol>
+@interface DHAppDelegate ()
 @property (weak) IBOutlet NSView *rootView;
 
 @end
@@ -20,7 +20,6 @@
 {
     NSString *query = [sender stringValue];
     [webView searchFor:query direction:YES caseSensitive:NO wrap:YES];
-    [self.window makeFirstResponder:self.textSearchField];
 }
 
 
@@ -28,15 +27,6 @@
 {
     [webView setMainFrameURL:@"http://kapeli.com/dash"];
     [webView setEditable:YES];
-    self.webView.delegate = self;
 }
-
-#pragma mark - <DHWebViewProtocol>
-
-- (NSTextField *)textField
-{
-    return self.textSearchField;
-}
-
 
 @end

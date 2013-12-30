@@ -5,10 +5,10 @@
 
 @class DHSearchTextField;
 
-@protocol DHWebViewProtocol <NSObject>
-@required;
-- (DHSearchTextField *)textField;
-@end
+//@protocol DHWebViewProtocol <NSObject>
+//@required;
+//- (DHSearchTextField *)textField;
+//@end
 
 
 @interface DHWebView : WebView {
@@ -27,7 +27,7 @@
 @property (strong) NSMutableString *entirePageContent;
 @property (strong) DHScrollbarHighlighter *scrollHighlighter;
 
-@property (nonatomic, unsafe_unretained) id<DHWebViewProtocol> delegate;
+//@property (nonatomic, unsafe_unretained) id<DHWebViewProtocol> delegate;
 
 - (void)highlightQuery:(NSString *)aQuery caseSensitive:(BOOL)isCaseSensitive;
 - (void)highlightQuery:(DHSearchQuery *)query;

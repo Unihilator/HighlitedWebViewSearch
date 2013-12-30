@@ -14,6 +14,7 @@
 @required;
 
 - (void)searchFieldDidpressEsc:(DHSearchTextField *)sf;
+- (void)searchFieldDidpressEnter:(DHSearchTextField *)sf;
 
 @end
 

@@ -55,6 +55,8 @@
     }
 }
 
+
+
 - (void)controlTextDidChange:(NSNotification *)obj
 {
     if ([self.delegate respondsToSelector:@selector(searchField:didChangeText:)]) {
@@ -62,6 +64,7 @@
     }
 }
 
+#pragma mark - DHTextFieldDelegate
 - (void)searchFieldDidpressEsc:(DHSearchTextField *)sf
 {
     if ([self.delegate respondsToSelector:@selector(doneButtonPressed:withTextfield:)]) {
@@ -69,4 +72,10 @@
     }
 }
 
+- (void)searchFieldDidpressEnter:(DHSearchTextField *)sf
+{
+    if ([self.delegate respondsToSelector:@selector(searchFieldDidPressEnterKey:)]) {
+        [self.delegate searchFieldDidPressEnterKey:sf];
+    }
+}
 @end

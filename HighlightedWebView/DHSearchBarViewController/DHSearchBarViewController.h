@@ -16,6 +16,7 @@
 - (void)findNextButtonPressed:(NSButton *)button withTextfield:(NSTextField *)textField;
 - (void)doneButtonPressed:(NSButton *)button withTextfield:(NSTextField *)textField;
 - (void)searchField:(NSSearchField *)searchField didChangeText:(NSNotification *)notif;
+- (void)searchFieldDidPressEnterKey:(NSSearchField *)searchField;
 
 @end
 
