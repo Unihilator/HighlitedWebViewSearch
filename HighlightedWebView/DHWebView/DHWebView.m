@@ -78,6 +78,7 @@
     BOOL result = [super searchFor:string direction:forward caseSensitive:caseFlag wrap:wrapFlag];
     if(result)
     {
+        [self highlightSelection];
         [self highlightQuery:query];
     }
     else
@@ -108,6 +109,35 @@
     self.currentQuery = query;
     [self startClearingHighlights];
 }
+
+// Derkach Roman
+- (void)highlightSelection
+{
+    
+    NSNumber *left = @([[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).getBoundingClientRect().left.toString()"] floatValue]);
+    NSNumber *bottom = @([[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).getBoundingClientRect().bottom.toString()"] floatValue]);
+    NSNumber *width = @([[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).getBoundingClientRect().width.toString()"] floatValue]);
+    NSNumber *height = @([[self stringByEvaluatingJavaScriptFromString:@"window.getSelection().getRangeAt(0).getBoundingClientRect().height.toString()"] floatValue]);
+    NSImage *sc = [self takeScreenshotFromRect:left bottom:bottom width:width height:height];
+    NSView *view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, sc.size.width, sc.size.height)];
+    [sc drawInRect:view.frame];
+}
+
+- (NSImage *)takeScreenshotFromRect:(NSNumber *)left bottom:(NSNumber *)bottom width:(NSNumber *)width height:(NSNumber *)height
+{
+    NSData *d = [self dataWithPDFInsideRect:NSMakeRect(left.floatValue, bottom.floatValue, width.floatValue, height.floatValue)];
+    NSImage *i = [[NSImage alloc] initWithData:d];
+    return i;
+}
+
+//+ (NSImage*) processImage :(NSImage*) image
+//{
+//    const float colorMasking[6]={222,255,222,255,222,255};
+//    CGImageRef imageRef = CGImageCreateWithMaskingColors(image.CGImage, colorMasking);
+//    NSImage* imageB = [NSImage imageWithCGImage:imageRef];
+//    CGImageRelease(imageRef);
+//    return imageB;
+//}
 
 - (void)startClearingHighlights
 {
